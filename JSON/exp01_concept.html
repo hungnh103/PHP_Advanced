@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <script type="text/javascript">
+    person_info = {
+      "name": "bibi",
+      "email": "bibi@gmail.com",
+      "course": "Advanced PHP"
+    }
+
+    document.write(person_info.name + "<br>");
+    document.write(person_info.email + "<br>");
+    document.write(person_info.course + "<br>");
+
+    book_info = {
+      "book": [
+        {"name": "The Art of Computer Programming"},
+        {"author": "Donald Knuth"},
+        {"email": "knuth@gmail.com"}
+      ]
+    }
+
+    document.write(book_info.book[1].author+"<br>");
+
+    book_info2 = {
+      "books": [
+        {"chapter": [
+          {"title": "chap 1"},
+          {"level": "easy"}
+        ]},
+        {"chapter": [
+          {"title": "chap 2"},
+          {"level": "medium"}
+        ]},
+        {"chapter": [
+          {"title": "chap 3"},
+          {"level": "hard"}
+        ]}
+      ]
+    }
+
+    document.write(book_info2.books[1].chapter[0].title+"<br><br>");
+
+    for(i=0; i<book_info2.books.length; i++){
+      document.write(book_info2.books[i].chapter[0].title+"<br>");
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>
