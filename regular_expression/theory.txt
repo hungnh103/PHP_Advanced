@@ -1,0 +1,32 @@
+1. các quy tắc cơ bản
+cú pháp: "/^biểu_thức$/"
+| -> hoặc A|B
+\ký_tự -> xác định ký_tự ở phía sau là ký tự đặc biệt, vd: \@
+
+2. các quy tắc xác định số lần xuất hiện của các phần tử
+a* -> a xuất hiện 0 hoặc nhiều lần
+a+ -> a xuất hiện 1 hoặc nhiều lần
+a? -> a xuất hiện 0 hoặc 1 lần
+a{x} -> a xuất hiện đúng x lần
+a{x, y} -> a xuất hiện từ x cho tới y lần
+a{x,} -> a xuất hiện tối thiểu x lần
+
+3. các quy tắc gom nhóm, phân đoạn dữ liệu
+[] -> dữ liệu xuất hiện trong phân đoạn như thế nào
+() -> dữ liệu xuất hiện chính xác như yêu cầu
+
+vd:
+[a-z] -> dữ liệu xuất hiện trong khoảng a -> z
+[A-Z] -> dữ liệu xuất hiện trong khoảng A -> Z
+[0-9] -> dữ liệu xuất hiện trong khoảng 0 -> 9
+[a-zA-Z0-9] -> dữ liệu xuất hiện chỉ gồm chữ hoặc số
+(ab|cd) -> dữ liệu phải xuất hiện hoặc là gồm 2 ký tự "ab", hoặc là "cd"
+[a-z]* -> dữ liệu dạng chữ thường, xuất hiện 0 hoặc nhiều lần
+[a-z]+ -> dữ liệu dạng chữ thường, xuất hiện 1 hoặc nhiều lần, vd: "aa" hợp lệ
+
+***lưu ý: (.*) -> hợp lệ với bất kỳ kí tự nào
+
+4. kiểm tra trên PHP
+preg_match("luật", $giá_trị_cần_kiểm_tra); -> true or false
+preg_match("luật", $giá_trị_cần_kiểm_tra, $kết_quả); -> bóc tách với $kết_quả sau khi quét dữ liệu
+preg_match_all();
