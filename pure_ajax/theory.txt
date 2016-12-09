@@ -1,0 +1,60 @@
+1. khởi tạo đối tượng phù hợp với trình duyệt của người dùng
+    + xác định người dùng đang dùng trình duyệt nào:
+    navigator.appName;
+    - nếu là IE: new ActiveXObject("Microsoft.XMLHTTP");
+    - khác: new XMLHttpRequest();
+
+    *** cách khác: (nguồn tham khảo: https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+    // Old compatibility code, no longer needed.
+    if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+        httpRequest = new XMLHttpRequest();
+    } else if (window.ActiveXObject) { // IE 6 and older
+        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+2. thiết lập dữ liệu
+    open("method", "url", async);
+    - method: post/get
+    - url: php, asp, jsp
+    - async: true/false
+
+    onreadystatechange = ten_ham;
+
+    send(thong_tin)
+    - nếu method là post -> thông tin sẽ là tham số
+    - nếu method là get -> thông tin sẽ để vào là chữ "NULL"
+
+3. kiểm tra
+    + trạng thái của dữ liệu
+    readyState: 0, 1, 2, 3, 4
+    - chỉ quan tâm đến 4: complete
+
+    + trạng thái của hệ thống
+    status: 401, 404, 503, 200
+    - 401: server cần phải có username và password để truy cập
+    - 404: trang web không tồn tại
+    - 503: lỗi hệ thống
+    - 200: ok -> quan tâm đến status này
+
+4. nhận kết quả
+    + nếu kết quả trả về dưới dạng text
+    responseText
+
+    + nếu kết quả trả về là file XML
+    responseXML
+
+5. dùng javascript nhận kết quả
+    + hiển thị dữ liệu ra một vùng ten_id
+    document.getElementById("ten_id").innerHTML = ket_qua;
+
+    + ẩn đi vùng có id là ten_id
+    document.getElementById("ten_id").style.display = "none";
+
+    + lấy giá trị từ một text box
+    encodeURI(document.getElementById("ten_id").value);
+
+
+
+** các sự kiện **
+onclick = "ham()"
+onchange = "ham()"
