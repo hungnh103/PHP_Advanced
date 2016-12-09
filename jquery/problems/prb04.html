@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Play Lottery</title>
+  <style type="text/css">
+    .number {font-weight: bold; font-size: 15pt; border: 1px solid blue; width: 70px; text-align: center; float: left; margin: 10px; }
+  </style>
+  <!-- <script type="text/javascript" src="jquery_1.7.2.js"></script> -->
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+    // $.fn.clicktoggle = function(a, b) {
+    //   return this.each(function() {
+    //     var clicked = false;
+    //     $(this).bind("click", function() {
+    //       if (clicked) {
+    //         clicked = false;
+    //         return b.apply(this, arguments);
+    //       }
+    //       clicked = true;
+    //       return a.apply(this, arguments);
+    //     });
+    //   });
+    // };
+
+    function changeVal() {
+      for (i=1; i<=6; i++) {
+        val = Math.floor(Math.random() * 9);
+        $("#no"+i).html(val);
+      }
+    }
+
+    $(document).ready(function(){
+      $("button").click(function(){
+        a = $(this).val();
+        if (a == 0) {
+          $(this).html("Stop").val("1");
+          // quay so
+          playing = setInterval("changeVal()", 50);
+        } else {
+          $(this).html("Start").val("0");
+          // dung quay
+          clearInterval(playing);
+        }
+      })
+
+      // nếu dùng jQuery phiên bản < 1.9.1
+      // thì hàm toggle() sẽ hoạt động phù hợp yêu cầu đặt ra
+      // còn nếu như vẫn muốn viết theo cách này khi dùng các thư viện jQuery phiên bản cao hơn
+      // thì kích hoạt thư viện clicktoggle ở trên và thay "toggle" thành "clicktoggle"
+      //
+      // $("button").toggle(function(){
+      //   playing = setInterval("changeVal()", 100);
+      // }, function(){
+      //   clearInterval(playing);
+      // })
+
+      $("a").click(function(){
+        $(".number").html("0");
+      })
+
+    })
+  </script>
+</head>
+
+<body>
+  <div id="no1" class="number">0</div>
+  <div id="no2" class="number">0</div>
+  <div id="no3" class="number">0</div>
+  <div id="no4" class="number">0</div>
+  <div id="no5" class="number">0</div>
+  <div id="no6" class="number">0</div>
+
+  <div class="clr" style="clear: left;"></div>
+  <button type="button" value="0">Start</button>
+  <br>
+  <br>
+  <a href="javascript:void(0)">Reset</a>
+</body>
+</html>

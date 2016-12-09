@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery Events</title>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("a.test").click(function(){
+        alert("click lien ket 1");
+      })
+
+      $("#language").change(function(){
+        lang = $(this).val();
+        alert(lang);
+      })
+
+      $("a.test2").bind("click", function(){
+        alert("click lien ket 2");
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <a href="#" class="test">click here</a>
+  <a href="#" class="test2">click here 2</a>
+  <select id="language">
+    <option value="PHP">PHP</option>
+    <option value="Ruby">Ruby</option>
+    <option value="Rails">Rails</option>
+    <option value="Javascript">Javascript</option>
+  </select>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery Effects</title>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#info").hide();
+      $("a").bind("click", function(){
+        $("#info").slideToggle();
+      })
+    })
+  </script>
+  <style type="text/css" media="screen">
+    a:hover{
+      text-decoration: none;
+    }
+    a:active{
+      font-size: 20pt;
+      color: #E6DB74;
+    }
+
+    #info{
+      height: 70px;
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+  <a href="#">Information</a>
+  <div id="info">Content here...</div>
+</body>
+</html>
