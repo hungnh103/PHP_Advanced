@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Menu jQuery</title>
+    <style>
+      ul li div.submenu{
+        display:none;
+      }
+      ul li.selected div.submenu{
+        display:block;
+      }
+    </style>
+    <script language="javascript" src="../jquery.js"></script>
+    <script language="javascript">
+      $(document).ready(function(){
+        $("ul li a").click(function(){
+          li=$(this).parent();
+          if(li.hasClass("selected")){
+            li.removeClass("selected");
+          }else{
+            li.addClass("selected").siblings().removeClass("selected");
+          }
+        })
+      })
+    </script>
+  </head>
+
+  <body>
+    <ul>
+      <li><a href='#'>Menu 1</a>
+        <div class='submenu'>
+          <ul>
+            <li><a href='#'>Menu 1.1</a></li>
+            <li><a href='#'>Menu 1.2</a></li>
+            <li><a href='#'>Menu 1.3</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href='#'>Menu 2</a>
+        <div class='submenu'>
+          <ul>
+            <li><a href='#'>Menu 2.1</a></li>
+            <li><a href='#'>Menu 2.2</a></li>
+            <li><a href='#'>Menu 2.3</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href='#'>Menu 3</a>
+        <div class='submenu'>
+          <ul>
+            <li><a href='#'>Menu 3.1</a></li>
+            <li><a href='#'>Menu 3.2</a></li>
+            <li><a href='#'>Menu 3.3</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+  </body>
+</html>

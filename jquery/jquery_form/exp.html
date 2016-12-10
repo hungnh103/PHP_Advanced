@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery form</title>
+  <style type="text/css">
+    input[type='text']:focus{
+      outline: none;
+    }
+  </style>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("input").css("color", "red");
+    $(":input").css("font-weight", "bold");
+    // $("input[type='submit']").css("font-style", "italic");
+    $(":submit").css("font-size", "20pt");
+
+    $(":submit").click(function(){
+      name = $("input[name='txtname']").val();
+      $("#result").append(name);
+      return false;
+    })
+  })
+  </script>
+</head>
+<body>
+  <form action="#" method="post">
+    <input type="text" name="txtname">
+    <input type="submit" name="ok" value="click">
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>

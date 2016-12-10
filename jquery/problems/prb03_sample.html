@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Add and remove field jQuery</title>
+  <!-- sử dụng phiên bản jQuery < 1.9.1 để hàm live() hoạt động được -->
+  <script type="text/javascript" src="jquery_1.7.2.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      i = 1;
+      $("a#additem").click(function(){
+        i++;
+        $("#item").append("<span>Item "+i+": <input type='text' id='item"+i+"'> <a href='#' class='del'>del</a><br></span>");
+
+        // nếu đặt đoạn code này ở trong sự kiện click của thẻ a thêm item
+        // thì sự kiện xoá chỉ được kích hoạt khi đã có sự kiện thêm
+        // $("a.del").click(function(){
+        //   $(this).parent().remove();
+        // })
+      })
+
+      $("#ok").click(function(){
+        content = "";
+        count = 1;
+        for(j=1; j<=i; j++) {
+          val = $("#item"+j).val();
+          if (val) {
+            count++;
+            content += "Item" + count + ": " + val + "<br>";
+          }
+        }
+        $("#result").html(content);
+        return false;
+      })
+
+      // nếu viết sự kiện xoá ra ngoài sự kiện thêm
+      // cần dùng hàm liv() để đảm bảo click "sống"
+      $("a.del").live("click", function(){
+        $(this).parent().remove();
+      })
+
+      // cách viết này không hoạt động, vì sự kiện click không "sống"
+      // $("a.del").click(function(){
+      //   $(this).parent().remove();
+      // })
+
+    })
+  </script>
+</head>
+
+<body>
+  <a href="#" id="additem">Add item</a>
+  <form>
+    <div id="item">
+      Item 1: <input type="text" id="item1"><br>
+    </div>
+    <br>
+    <input type="submit" name="ok" value="output" id="ok">
+  </form>
+
+  <div id="result"></div>
+
+</body>
+</html>

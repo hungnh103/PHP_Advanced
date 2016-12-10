@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery HTML</title>
+  <style type="text/css" media="screen">
+    #result{
+      height: 80px;
+      width: 200px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("a#test").bind("click", function(){
+        $("#result").html("xin chao");
+      })
+
+      $("a#test2").bind("click", function(){
+        $("#add_data").append("<p>abc</p>");
+      })
+
+      $("a#test3").bind("click", function(){
+        $("#add_data").prepend("<p>test3</p>");
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <a href="javascript:void(0)" id="test">click here</a>
+  <div id="result">
+    <ul>
+      <li>123</li>
+      <li>qwe</li>
+      <li>asd</li>
+    </ul>
+  </div>
+
+  <a href="javascript:void(0)" id="test2">click to append data</a>
+  <a href="javascript:void(0)" id="test3">click to prepend data</a>
+  <div id="add_data">qwe</div>
+</body>
+</html>

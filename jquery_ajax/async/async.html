@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Asynchronous in AJAX</title>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("a").click(function(){
+        a = "hi";
+        $.ajax({
+          url:"async_process.php",
+          type:"get",
+          data:"data=bye",
+          async:true,
+          success:function(result){
+            a = result;
+          }
+        })
+
+        // display "hi" if async:true, "bye" if async:false
+        alert(a);
+      })
+    })
+  </script>
+</head>
+<body>
+  <a href="javascript:void(0)">click here</a>
+</body>
+</html>
